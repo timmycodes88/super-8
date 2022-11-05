@@ -1,13 +1,15 @@
-import { useState } from 'react';
+
 import MainApp from './MainApp';
 import SignIn from './pages/SignIn';
+import useSignIn from './utils/hooks/useSignIn';
 
 export default function App() {
-  const [signedIn] = useState(false)
+  
+  const { isSignedIn } = useSignIn()
 
   return (
     <>
-    {signedIn ? <MainApp /> : <SignIn />}
+    {isSignedIn ? <MainApp /> : <SignIn />}
     </>
   );
 }

@@ -7,6 +7,7 @@ import Profile from './pages/Profile';
 import Shop from './pages/Shop';
 
 export default function MainApp() {
+    
     return (
       <Body>
         <NavBar />

@@ -1,20 +1,24 @@
 import tw from 'twin.macro'
 import { Link } from 'react-router-dom'
+import useSignIn from '../utils/hooks/useSignIn'
 
 export default function NavBar() {
-  return (
-    <Bar>
-        <Logo>
-         TW App
-        </Logo>
-        <Nav>
-            <Link to='/'>Home</Link>
-            <Link to='/shop'>Shop</Link>
-            <Link to='/profile'>Profile</Link>
-            <Button onClick={() => console.log('sign out func')}>Sign Out</Button>
-        </Nav>
-    </Bar>
-  )
+
+    const { signOut } = useSignIn()
+
+    return (
+        <Bar>
+            <Logo>
+            TW App
+            </Logo>
+            <Nav>
+                <Link to='/'>Home</Link>
+                <Link to='/shop'>Shop</Link>
+                <Link to='/profile'>Profile</Link>
+                <Button onClick={signOut}>Sign Out</Button>
+            </Nav>
+        </Bar>
+    )
 }
 
 const Bar = tw.div`flex items-center justify-around sticky top-0 w-full h-24 bg-red-500`
