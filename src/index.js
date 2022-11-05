@@ -1,18 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './assets/css/index.css'
-import App from './App';
-import reportWebVitals from './utils/reportWebVitals';
-import { BrowserRouter } from 'react-router-dom'
-import SignInState from './context/SignInState';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./assets/css/index.css";
+import App from "./App";
+import reportWebVitals from "./utils/reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import SignInState from "./context/SignInState";
+import UserState from "./context/UserState";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <SignInState>
-        <App />
+        <UserState>
+          <App />
+        </UserState>
       </SignInState>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,6 +1,6 @@
 import tw from 'twin.macro'
 import { Link } from 'react-router-dom'
-import useSignIn from '../utils/hooks/useSignIn'
+import useSignIn from '../context/hooks/useSignIn'
 
 export default function NavBar() {
 

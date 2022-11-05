@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SignInContext } from "../../context/SignInState";
+import { SignInContext } from "../SignInState";
 
 
 export default function useSignIn() {
