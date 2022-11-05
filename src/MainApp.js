@@ -24,4 +24,4 @@ export default function MainApp() {
     );
   }
   
-  const Body = tw.div``
+  const Body = tw.div`bg-gray-100`

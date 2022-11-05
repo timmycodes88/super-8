@@ -6,4 +6,4 @@ export default function Wrapper({children}) {
     )
 }
 
-const StyledWrapper = tw.div`mx-4`
+const StyledWrapper = tw.div`mx-16 lg:mx-64`
