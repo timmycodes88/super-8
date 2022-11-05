@@ -1,9 +1,13 @@
-import tw, { styled } from 'twin.macro'
+import { useState } from 'react';
+import MainApp from './MainApp';
+import SignIn from './pages/SignIn';
 
 export default function App() {
+  const [signedIn] = useState(false)
+
   return (
-    <Body></Body>
+    <>
+    {signedIn ? <MainApp /> : <SignIn />}
+    </>
   );
 }
-
-const Body = tw.div`h-screen w-screen bg-blue-400`
