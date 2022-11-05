@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import tw from "twin.macro";
 import { ReactComponent as CommentIcon } from '../assets/svg/comment.svg';
 import { ReactComponent as HeartIcon } from '../assets/svg/heart.svg';
