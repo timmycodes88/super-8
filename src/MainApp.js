@@ -7,12 +7,14 @@ import Profile from "./pages/Profile";
 import Shop from "./pages/Shop";
 import ShoppingDrawer from "./components/ShoppingDrawer";
 import { useState } from "react";
+import GetProfile from "./context/getData/GetProfile";
 
 export default function MainApp() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
     <Body>
+      <GetProfile />
       <NavBar setDrawerOpen={setDrawerOpen} />
       <Wrapper>
         <Routes>

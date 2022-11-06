@@ -1,5 +1,6 @@
 import tw from "twin.macro";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as CartIcon } from "../assets/svg/cart.svg";
 import useSignIn from "../context/hooks/useSignIn";
 
 export default function NavBar({ setDrawerOpen }) {
@@ -16,7 +17,7 @@ export default function NavBar({ setDrawerOpen }) {
         <Button onClick={() => navigate("/profile")}>Profile</Button>
         <Button onClick={signOut}>Sign Out</Button>
         <DrawerButton onClick={() => setDrawerOpen(curr => !curr)}>
-          Carts
+          <StyledCartIcon />
         </DrawerButton>
       </Nav>
     </Bar>
@@ -29,3 +30,4 @@ const Nav = tw.div`flex gap-x-8 text-white underline text-xl`;
 
 const Button = tw.button`items-baseline`;
 const DrawerButton = tw.button``;
+const StyledCartIcon = tw(CartIcon)`h-10`;

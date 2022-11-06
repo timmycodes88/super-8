@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SignInContext } from "../SignInState";
-import { auth } from "../../utils/FirebaseConfig";
+import { auth, setupNewUser } from "../../utils/FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { UserContext } from "../UserState";
 import { SET_UID } from "../types";
@@ -12,8 +12,11 @@ export default function useSignIn() {
   function signIn() {
     signInWithPopup(auth, new GoogleAuthProvider())
       .then(res => {
-        dispatch({ type: SET_UID, payload: res.user.uid });
-        setSignedIn(true);
+        const uid = res.user.uid;
+        dispatch({ type: SET_UID, payload: uid });
+        setupNewUser(uid).then(res => {
+          setSignedIn(true);
+        });
       })
       .catch(err => {
         alert(err);
