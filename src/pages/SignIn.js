@@ -1,19 +1,12 @@
 import { useState } from "react";
 import tw, { styled, css } from "twin.macro";
-import Image from "../assets/images/BLISS.png";
+import Image from "../assets/images/bg.png";
 import useSignIn from "../context/hooks/useSignIn";
 
 export default function SignIn() {
   const { signIn } = useSignIn();
 
-  const [showSignIn, setShowSignIn] = useState(true);
-
-  //     @container sidebar (min-width: 400px) {
-  //   .card {
-  //     display: grid;
-  //     grid-template-columns: 2fr 1fr;
-  //   }
-  // }
+  const [showSignIn, setShowSignIn] = useState(true); //Sign in or Create Account
 
   return (
     <Body>
@@ -54,13 +47,13 @@ const ImageContainer = styled.div(({ Image }) => [
 
 const FormSpacer = tw.div`flex flex-col items-center gap-8`;
 
-const SignInContainer = tw.div`w-full md:w-1/2 lg:w-2/5  px-8 bg-green-500 h-screen flex flex-col justify-center`;
-const SignInBox = tw.div`border-4 border-purple-800 py-8 px-20 rounded-3xl bg-purple-500`;
+const SignInContainer = tw.div`w-full md:w-1/2 lg:w-2/5  px-8 bg-gray-50 h-screen flex flex-col justify-center`;
+const SignInBox = tw.div`border-2 py-8 px-20 rounded-3xl bg-gradient-to-r from-blue-900 to-blue-400`;
 const Label = tw.span`mx-auto items-center text-white text-2xl font-semibold`;
 const InputStyles = `w-full outline-none rounded-lg py-2 px-5`;
 const Email = tw.input`${InputStyles}`;
 const Username = tw.input`${InputStyles}`;
 const Password = tw.input`${InputStyles}`;
 const PasswordConfirm = tw.input`${InputStyles}`;
-const SubmitButton = tw.button`px-8 py-2 rounded-lg bg-purple-800 text-white transition-all ease-in-out hover:scale-110`;
+const SubmitButton = tw.button`px-8 py-2 rounded-lg bg-gradient-to-l from-blue-900 to-blue-400 text-white transition-all ease-in-out hover:scale-110`;
 const ToggleSignIn = tw.button` w-28 text-white`;
