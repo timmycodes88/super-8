@@ -1,43 +1,45 @@
-
 import tw from "twin.macro";
-import { ReactComponent as CommentIcon } from '../assets/svg/comment.svg';
-import { ReactComponent as HeartIcon } from '../assets/svg/heart.svg';
+import { ReactComponent as CommentIcon } from "../assets/svg/comment.svg";
+import { ReactComponent as HeartIcon } from "../assets/svg/heart.svg";
 import ProfileAvatar from "../components/ProfileAvatar";
+import useUser from "../context/hooks/useUser";
 
 export default function Home() {
+  const { uid } = useUser();
+
   const posts = [
     {
       username: "TimmyCodes88",
       comment: "React is AMAZING!",
-      likes: 3
+      likes: 3,
     },
     {
       username: "DatNelly",
       comment: "I Love React",
-      likes: 500
+      likes: 500,
     },
   ];
 
   const friends = [
     {
-        username: "TimmyCodes88",
+      username: "TimmyCodes88",
     },
     {
-        username: "DatNelly",
-    }
-  ]
-
+      username: "DatNelly",
+    },
+  ];
 
   return (
     <Body>
       <Main>
-        {posts.map((post) => {
+        <p>UID: {uid}</p>
+        {posts.map(post => {
           return (
             <Post>
               <ImagePost />
               <ReactButtonContainer>
                 <StyledHeartIcon />
-                <StyledCommentIcon/>
+                <StyledCommentIcon />
               </ReactButtonContainer>
               <UsernameAndComment>
                 <ProfileAvatar />
@@ -51,13 +53,13 @@ export default function Home() {
       </Main>
       <Side>
         <Label>Friends</Label>
-        {friends.map((friend) => {
-            return (
-                <FriendContainer>
-                    <ProfileAvatar />
-                    <h1>{friend.username}</h1>
-                </FriendContainer>
-            )
+        {friends.map(friend => {
+          return (
+            <FriendContainer>
+              <ProfileAvatar />
+              <h1>{friend.username}</h1>
+            </FriendContainer>
+          );
         })}
       </Side>
     </Body>
@@ -77,13 +79,13 @@ const UsernameAndComment = tw.div`flex gap-4 w-full items-center`;
 const Username = tw.p``;
 
 //For Side
-const Label = tw.h2`mx-auto underline text-xl`
-const FriendContainer = tw.div`flex gap-4 items-center hover:bg-red-500 hover:text-white cursor-pointer px-2 py-1 rounded`
+const Label = tw.h2`mx-auto underline text-xl`;
+const FriendContainer = tw.div`flex gap-4 items-center hover:bg-red-500 hover:text-white cursor-pointer px-2 py-1 rounded`;
 
 //Utils
 const SemiBold = tw.span`font-semibold`;
 
 // Icons
-const IconStyles = `h-6 cursor-pointer`
-const StyledHeartIcon = tw(HeartIcon)`${IconStyles}`
-const StyledCommentIcon = tw(CommentIcon)`${IconStyles}`
+const IconStyles = `h-6 cursor-pointer`;
+const StyledHeartIcon = tw(HeartIcon)`${IconStyles}`;
+const StyledCommentIcon = tw(CommentIcon)`${IconStyles}`;

@@ -4,6 +4,7 @@ import userReducer from "./userReducer";
 export const UserContext = createContext();
 
 const initialUserState = {
+  uid: "",
   profile: {},
   friends: [],
   shoppingCart: [],
