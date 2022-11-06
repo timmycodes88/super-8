@@ -8,7 +8,7 @@ export default function useProfile() {
   const { dispatch, profile, uid } = useUser();
 
   function setUsername() {
-    postUserName(uid, usernameValue).then(res => {
+    postUserName(uid, usernameValue).then(_ => {
       dispatch({ type: SET_USERNAME, payload: usernameValue });
       setUsernameValue("");
     });
