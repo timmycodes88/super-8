@@ -13,7 +13,6 @@ const initialUserState = {
 
 export default function UserState({ children }) {
   const [state, dispatch] = useReducer(userReducer, initialUserState);
-
   return (
     <UserContext.Provider value={{ ...state, dispatch }}>
       {children}

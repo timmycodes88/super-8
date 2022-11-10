@@ -5,7 +5,7 @@ export default function EditProfile() {
   const {
     profile: { username },
     usernameValue,
-    setUsernameValue,
+    changeUsername,
     setUsername,
   } = useProfile();
 
@@ -16,7 +16,7 @@ export default function EditProfile() {
         <Input
           placeholder={username}
           value={usernameValue}
-          onChange={e => setUsernameValue(e.target.value)}
+          onChange={changeUsername}
         />
         <Button onClick={setUsername}>Save</Button>
       </Row>

@@ -7,6 +7,7 @@ export default function useProfile() {
   const [usernameValue, setUsernameValue] = useState("");
   const { dispatch, profile, uid } = useUser();
 
+  //Calls Server and Updates profile.username in Context
   function setUsername() {
     postUserName(uid, usernameValue).then(_ => {
       dispatch({ type: SET_USERNAME, payload: usernameValue });
@@ -14,9 +15,13 @@ export default function useProfile() {
     });
   }
 
+  function changeUsername(e) {
+    setUsernameValue(e.target.value);
+  }
+
   return {
     usernameValue,
-    setUsernameValue,
+    changeUsername,
     profile,
     setUsername,
   };

@@ -4,19 +4,19 @@ import "./assets/css/index.css";
 import App from "./App";
 import reportWebVitals from "./utils/reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import SignInState from "./context/SignInState";
 import UserState from "./context/UserState";
+import SignInState from "./context/SignInState";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <SignInState>
+    <SignInState>
+      <BrowserRouter>
         <UserState>
           <App />
         </UserState>
-      </SignInState>
-    </BrowserRouter>
+      </BrowserRouter>
+    </SignInState>
   </React.StrictMode>
 );
 

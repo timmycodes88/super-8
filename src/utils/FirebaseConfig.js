@@ -36,5 +36,5 @@ export async function getProfileData(uid) {
 export async function postUserName(uid, username) {
   const docRef = doc(db, "users", uid);
   const res = await setDoc(docRef, { username: username }, { merge: true });
-  return res.data();
+  return;
 }

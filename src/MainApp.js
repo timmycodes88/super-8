@@ -10,12 +10,12 @@ import { useState } from "react";
 import GetProfile from "./context/getData/GetProfile";
 
 export default function MainApp() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const drawer = useState(false); //Create Shopping Context and take shopping list out of user
 
   return (
     <Body>
       <GetProfile />
-      <NavBar setDrawerOpen={setDrawerOpen} />
+      <NavBar drawer={drawer} />
       <Wrapper>
         <Routes>
           <>
@@ -25,9 +25,7 @@ export default function MainApp() {
           </>
         </Routes>
       </Wrapper>
-      <TranslatingDrawer open={drawerOpen}>
-        <ShoppingDrawer setDrawerOpen={setDrawerOpen} />
-      </TranslatingDrawer>
+      <ShoppingCart drawer={drawer} />
     </Body>
   );
 }
@@ -45,3 +43,11 @@ const TranslatingDrawer = styled.div`
           transform: translateX(100%);
         `}
 `;
+
+function ShoppingCart({ drawer: [drawerOpen, setDrawerOpen] }) {
+  return (
+    <TranslatingDrawer open={drawerOpen}>
+      <ShoppingDrawer setDrawerOpen={setDrawerOpen} />
+    </TranslatingDrawer>
+  );
+}
